@@ -4,13 +4,18 @@ from email.mime.multipart import MIMEMultipart
 from models import Session, Recipient
 from config import EMAIL_USER, EMAIL_PASSWORD
 from datetime import datetime
+import os
 
 LOG_FILE = "logs/email_log.txt"
 
 def log_message(message):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # Create logs folder if it does not exist
+    os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+    # Write log
     with open(LOG_FILE, "a") as f:
         f.write(f"[{timestamp}] {message}\n")
+    # Print log to GitHub Actions UI
     print(message)
 
 def send_emails():
@@ -55,6 +60,3 @@ def send_emails():
             log_message(f"Unexpected error for {r.name} ({r.email}): {e_outer}")
 
     session.close()
-
-if __name__ == "__main__":
-    send_emails()
