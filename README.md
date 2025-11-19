@@ -1,10 +1,10 @@
-Email Automation System
+## Email Automation System
 
 Email Automation System is a Python project that automates sending emails to multiple recipients efficiently and reliably. It demonstrates practical skills in SMTP, SQLite, task automation, and error handling.
 
 ---
 
-Technologies Used
+## Technologies Used
 
 Python 3.x – main programming language
 
@@ -18,7 +18,7 @@ Logging – tracking success/failure of emails
 
 ---
 
-Features
+## Features
 
 Manual email sending
 
@@ -44,3 +44,4 @@ Scheduler Run:
 
 Email Logs:
 [Email Logs](screenshots/email_logs.png)
+
